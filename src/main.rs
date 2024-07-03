@@ -38,6 +38,12 @@ fn panic(_info: &core::panic::PanicInfo) -> ! {
 core::arch::global_asm!(
     r#"
 
+// Uncommenting this fixes it:
+// .fpu vfpv2
+// So does this:
+// .cpu cortex-r5
+// Uncommenting this won't fix it:
+// .arch armv7-r
 .section .text.startup
 .global _start
 .code 32
@@ -86,6 +92,5 @@ _start:
 //     b ."
 //     )
 // }
-
 
 // End of file
