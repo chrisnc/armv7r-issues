@@ -1,0 +1,10 @@
+[target.armv7r-none-eabihf]
+rustflags = [
+    "-Clink-arg=-Tlinker.ld",
+]
+# Requires QEMU 9.
+# The R52 is an Armv8-R Aarch32 CPU but is almost 100% Armv7-R compatible
+runner = "qemu-system-arm -machine mps3-an536 -cpu cortex-r52 -semihosting -nographic -kernel"
+
+[build]
+target = ["armv7r-none-eabihf"]
